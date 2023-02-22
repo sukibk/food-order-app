@@ -14,19 +14,19 @@ const availableMeals = [
         id: 'm2',
         name: 'Hamburger',
         description: 'American-style beefy hamburger',
-        price: 14.99
+        price: 18.49
     },
     {
         id: 'm3',
         name: 'Sushi',
         description: 'Tasty fish and veggies',
-        price: 14.99
+        price: 8.99
     },
     {
         id: 'm4',
         name: 'Pasta',
         description: 'Pasta with mac&cheese',
-        price: 14.99
+        price: 4.99
     }]
 
 const AvailableMeals = () => {
