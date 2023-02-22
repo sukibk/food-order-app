@@ -15,7 +15,7 @@ Before you can use this application, you need to have the following installed on
 
 1. Clone the repository to your local machine using the following command:
 ```python
-git clone https://github.com/sukibk/food-delivery-app.git
+git clone https://github.com/sukibk/food-order-app.git
 ```
 
 2. Navigate to the project directory:
