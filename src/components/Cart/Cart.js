@@ -25,7 +25,7 @@ const Cart = (props) =>{
     }
 
     const logData = () => {
-        console.log('Adding...')
+        console.log('Adding....')
     }
 
     return(
