@@ -25,26 +25,26 @@ const Cart = (props) =>{
     }
 
     const logData = () => {
-        console.log('Finalization...')
+        console.log('Adding...')
     }
 
     return(
-    <Modal onClose={props.onClose}>
-        <div className={styles["cart-items"]}>
-        {hasItems ? items.map(item => { return(
-            <CartItem name={item.name} amount={item.amount}
-                      price={item.price} key={item.id} onAdd={addItemHandler.bind(null, item)}
-            onRemove={removeItemHandler.bind(null, item.id)}/>)
-        }) : <p>No items in cart.</p>}
-        </div>
-        <div className={styles.total}>
-            <span>Total Amount</span>
-            <span>{ctx.totalAmount.toFixed(2)}{console.log(`${hasItems} ${items.length}`)}</span>
-        </div>
-        <div className={styles.actions}>
-            <button type="button" onClick={props.onClose}>Close</button>
-            {ctx.totalAmount>0 ? <button onClick={logData}>Order</button> : ''}
-        </div>
+        <Modal onClose={props.onClose}>
+            <div className={styles["cart-items"]}>
+                {hasItems ? items.map(item => { return(
+                    <CartItem name={item.name} amount={item.amount}
+                              price={item.price} key={item.id} onAdd={addItemHandler.bind(null, item)}
+                              onRemove={removeItemHandler.bind(null, item.id)}/>)
+                }) : <p>No items in cart.</p>}
+            </div>
+            <div className={styles.total}>
+                <span>Total Amount</span>
+                <span>{ctx.totalAmount.toFixed(2)}{console.log(`${hasItems} ${items.length}`)}</span>
+            </div>
+            <div className={styles.actions}>
+                <button type="button" onClick={props.onClose}>Close</button>
+                {ctx.totalAmount>0 ? <button onClick={logData}>Order</button> : ''}
+            </div>
         </Modal>
     )
 
