@@ -3,9 +3,12 @@ import CartContext from "../../store/cart-context";
 import { useContext, useState, useEffect } from "react";
 import CartItem from "./CartItem";
 import Modal from "../UI/Modal";
+import CheckoutForm from "./Checkout/CheckoutForm";
 
 const Cart = (props) =>{
     const [hasItems, setHasItems] = useState(false);
+    const [showForm, setShowForm] = useState(false);
+
     const ctx = useContext(CartContext);
     const {items} = ctx;
 
@@ -24,8 +27,8 @@ const Cart = (props) =>{
         ctx.removeItem(id)
     }
 
-    const logData = () => {
-        console.log('Adding....')
+    const showFormHandler = () => {
+        setShowForm(true);
     }
 
     return(
@@ -39,12 +42,13 @@ const Cart = (props) =>{
             </div>
             <div className={styles.total}>
                 <span>Total Amount</span>
-                <span>{ctx.totalAmount.toFixed(2)}{console.log(`${hasItems} ${items.length}`)}</span>
+                <span>{ctx.totalAmount.toFixed(2)}</span>
             </div>
             <div className={styles.actions}>
-                <button type="button" onClick={props.onClose}>Close</button>
-                {ctx.totalAmount>0 ? <button onClick={logData}>Order</button> : ''}
+                {!showForm && (<><button type="button" onClick={props.onClose}>Close</button>
+                {ctx.totalAmount>0 ? <button onClick={showFormHandler}>Order</button> : ''}</>)}
             </div>
+            {showForm && <CheckoutForm onCancle = {props.onClose}/>}
         </Modal>
     )
 
